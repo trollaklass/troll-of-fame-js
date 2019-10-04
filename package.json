@@ -1,0 +1,22 @@
+{
+  "name": "troll-of-fame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "bin": {
+    "fame": "bin/main.js"
+  },
+  "scripts": {
+    "start": "node bin/main.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "fast-check": "^1.17.0",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2"
+  }
+}
