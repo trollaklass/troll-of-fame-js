@@ -10,7 +10,7 @@ describe('Elf test suite', () => {
 
   test('1 Archer Dark Elf and 1 Swordsman High Elf should be equal', () => {
     const faeor = Elf.createElf(Elf.ROLE.SWORDSMAN, Elf.RACE.HIGH);
-    const shadowblight = Elf.createElf(Elf.ROLE.ARCHER, Elf.RACE.HIGH);
+    const shadowblight = Elf.createElf(Elf.ROLE.ARCHER, Elf.RACE.DARK);
     expect(shadowblight.getValue()).toBe(faeor.getValue());
   });
 });
