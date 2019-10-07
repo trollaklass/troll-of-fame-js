@@ -6,14 +6,14 @@ describe('Elf Invariance', () => {
   test('Elf value should always be positive', () => {
     fc.assert(fc.property(elfArbitrary(), elf => elf.getValue() > 0));
   });
-  test('Elf value should always be the product of race and role', () => {
-    fc.assert(
-      fc.property(
-        elfArbitrary(),
-        elf =>
-          elf.getValue() ===
-          ROLE.properties[elf.role].value * RACE.properties[elf.race].value
-      )
-    );
-  });
+  // test('Elf value should always be the product of race and role', () => {
+  //   fc.assert(
+  //     fc.property(
+  //       elfArbitrary(),
+  //       elf =>
+  //         elf.getValue() ===
+  //         ROLE.properties[elf.role].value * RACE.properties[elf.race].value
+  //     )
+  //   );
+  // });
 });
