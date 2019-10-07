@@ -1,5 +1,5 @@
 const fc = require('fast-check');
-const { createElf } = require('../lib/elf');
+const { createElf, RACE } = require('../lib/elf');
 const { createTroll } = require('../lib/troll');
 
 const elfArbitrary = () =>
@@ -7,7 +7,11 @@ const elfArbitrary = () =>
     .tuple(fc.integer(1, 4), fc.integer(1, 2))
     .map(([role, race]) => createElf(role, race));
 
-// const char = () => fc.integer(0x20, 0x7e).map(String.fromCharCode);
+const elfHighArbitrary = () =>
+  fc
+    .tuple(fc.integer(1, 4), fc.constant(RACE.HIGH))
+    .map(([role, race]) => createElf(role, race));
+
 const killArbitrary = () => fc.tuple(elfArbitrary(), fc.nat());
 
 const trollArbitrary = () =>
@@ -18,4 +22,5 @@ const trollArbitrary = () =>
 module.exports = {
   elfArbitrary,
   trollArbitrary,
+  elfHighArbitrary,
 };

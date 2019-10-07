@@ -24,7 +24,7 @@ At the end of each battle, the trolls want to compare the number and attributes 
 
 ### Work with legacy code
 
-You inherit an application that seems to work fine. Run `npm test` (•̀ᴗ•́)و ̑̑
+You inherit an application that seems to work fine. Run `npm test` (•̀ᴗ•́)و
 
 Read [elf.test.js](./test/elf.test.js) and [troll.test.js](./test/troll.test.js) as a first specification of the software.
 
@@ -39,6 +39,8 @@ Property Based Testing (a.k.a. PBT) is about generating tests instead of manuall
 In Javascript, we use [fast-check](https://github.com/dubzzz/fast-check/) library to write and run Property Based tests.
 
 #### Step 1 - Configuration and Invariance
+
+![invariant](./invariant.png)
 
 - For a simpler start, we already configured the build dependencies and created generators for `Elf` and `Troll` in the test lib.
 - PBT tests are located in [elf.prop.test.js](./test/elf.prop.test.js) and [troll.prop.test.js](./test/troll.prop.test.js)
@@ -83,6 +85,8 @@ describe('Elf Invariance', () => {
 
 Inverse properties check that it's possible to transform some input to an output and back to the original input, no matter the input. This is a useful property because it guarantees some functions don't lose information and/or are consistent.
 
+![inverse](./inverse.png)
+
 - For any `Troll` and any `Elf`, if the `Troll` kills the `Elf` and then realizes the elf survived, what should be the result?
 - Write an inverse property test to check that
 
@@ -91,6 +95,8 @@ Testing it will ensure that `iGotOne` and `oopsHeSurvived` are consistent.
 #### Step 3 - Analogy
 
 Analogous properties check that there are at least 2 different ways from any input to reach an output. This is a useful property because it guarantees some functions are consistent (can also be useful for refactors)
+
+![analogy](./analogy1.png)
 
 For any troll, any elf and any positive quantity of killed elves, what should be the difference between:
 
@@ -101,14 +107,20 @@ Write an analogous property test to check that
 
 This ensures that `iGotOne` and `iGot` are consistent.
 
+![analogy](./analogy2.png)
+
 #### Step 4 - Idempotence
 
 Idempotent properties check that running a function once or several times leads to exactly the same result, i.e. an idempotent function brings to a stable state from which this function becomes useless.
+
+![idempotence](./idempotence1.png)
 
 - For any `Troll` and any `Elf`, once all elves have been resurrected, what should happen if these elves are resurrected again?
 - Write an idempotent property test to check that
 
 This ensures that `allElvesOfAKindResurrected` brings the `Troll` killing list to a stable state (i.e. many call should have the same result as once).
+
+![idempotence](./idempotence2.png)
 
 #### [Bonus] Step 5 - Metamorphism
 
