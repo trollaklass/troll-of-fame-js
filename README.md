@@ -99,7 +99,7 @@ Testing it will ensure that `iGotOne` and `oopsHeSurvived` are consistent.
 Analogous properties check that there are at least 2 different ways from any input to reach an output. This is a useful property because it guarantees some functions are consistent (can also be useful for refactors)
 
 ![analogy](./analogy1.png)
-`Adding any number to itself is the same as multiplying this number by 2`
+_Adding any number to itself is the same as multiplying this number by 2_
 
 For any troll, any elf and any positive quantity of killed elves, what should be the difference between:
 
