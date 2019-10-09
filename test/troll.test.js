@@ -9,7 +9,7 @@ describe('Troll test suite', () => {
     const aklassAfter = Troll.iGot(5)(faeor)(aklassBefore);
     expect(
       aklassAfter.kills.reduce(
-        (acc, [elf, count]) => (elf === faeor ? acc + count : acc),
+        (acc, [elf, count]) => (Elf.isKindOf(elf, faeor) ? acc + count : acc),
         0
       )
     ).toBe(5);

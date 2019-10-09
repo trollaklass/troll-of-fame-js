@@ -13,7 +13,6 @@ const elfHighArbitrary = () =>
     .map(([role, race]) => createElf(role, race));
 
 const killArbitrary = () => fc.tuple(elfArbitrary(), fc.nat());
-
 const trollArbitrary = () =>
   fc
     .tuple(fc.string(), fc.array(killArbitrary()))
