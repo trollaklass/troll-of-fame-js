@@ -3,7 +3,7 @@ const Troll = require('../lib/troll');
 const { pipe } = require('../lib/util');
 
 describe('Troll test suite', () => {
-  test('iGot should faeor with value 5', () => {
+  test('iGot should kill faeor with value 5', () => {
     const faeor = Elf.createElf(Elf.ROLE.SWORDSMAN, Elf.RACE.HIGH);
     const aklassBefore = Troll.createTroll('Aklass');
     const aklassAfter = Troll.iGot(5)(faeor)(aklassBefore);
@@ -14,7 +14,7 @@ describe('Troll test suite', () => {
       )
     ).toBe(5);
   });
-  test('iGotOne should faeor with value 1', () => {
+  test('iGotOne should kill faeor with value 1', () => {
     const faeor = Elf.createElf(Elf.ROLE.SWORDSMAN, Elf.RACE.HIGH);
     const aklassBefore = Troll.createTroll('Aklass');
     const aklassAfter = Troll.iGotOne(faeor)(aklassBefore);
@@ -25,7 +25,7 @@ describe('Troll test suite', () => {
       )
     ).toBe(1);
   });
-  test('oopsHeSurvived should remove faeor', () => {
+  test('oopsHeSurvived should remove faeor from kill', () => {
     const faeor = Elf.createElf(Elf.ROLE.SWORDSMAN, Elf.RACE.HIGH);
     const aklassFaeorSurvived = pipe(
       Troll.iGotOne(faeor),
